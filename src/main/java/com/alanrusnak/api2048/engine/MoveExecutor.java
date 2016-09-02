@@ -62,6 +62,10 @@ public class MoveExecutor {
             if(row[i+1].isEmpty()){
                 row[i+1].setValue(row[i].getValue());
                 row[i].setValue(0);
+            } else if(row[i].getValue() == row[i+1].getValue() && !row[i+1].isMergedAlready()){
+                row[i+1].setValue(row[i+1].getValue() * 2);
+                row[i+1].setMergedAlready(true);
+                row[i].setValue(0);
             }
         }
     }
