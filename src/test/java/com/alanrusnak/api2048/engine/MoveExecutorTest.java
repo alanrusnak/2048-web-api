@@ -8,8 +8,28 @@ public class MoveExecutorTest {
 
     MoveExecutor moveExecutor = new MoveExecutor();
 
+    @Test
+    public void testSlideTile0Spaces(){
+        Tile[] row = row(0,0,0,2);
+        moveExecutor.slideRight(row);
+        Assert.assertEquals(2, row[3].getValue());
+    }
 
-   @Test
+    @Test
+    public void testSlideTile1Spaces(){
+        Tile[] row = row(0,0,2,0);
+        moveExecutor.slideRight(row);
+        Assert.assertEquals(2, row[3].getValue());
+    }
+
+    @Test
+    public void testSlideTile2Spaces(){
+        Tile[] row = row(0,2,0,0);
+        moveExecutor.slideRight(row);
+        Assert.assertEquals(2, row[3].getValue());
+    }
+
+    @Test
     public void testSlideTile3Spaces(){
         Tile[] row = row(2,0,0,0);
         moveExecutor.slideRight(row);

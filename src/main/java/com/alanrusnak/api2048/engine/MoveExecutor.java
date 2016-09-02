@@ -50,7 +50,20 @@ public class MoveExecutor {
     }
 
     public void slideRight(Tile[] row){
+        for(int i = 2; i >= 0; i--){
+            if(!row[i].isEmpty()){
+                slideTileRight(row, i);
+            }
+        }
+    }
 
+    private void slideTileRight(Tile[] row, int index) {
+        for(int i = index; i <= 2; i++){
+            if(row[i+1].isEmpty()){
+                row[i+1].setValue(row[i].getValue());
+                row[i].setValue(0);
+            }
+        }
     }
 
 }
