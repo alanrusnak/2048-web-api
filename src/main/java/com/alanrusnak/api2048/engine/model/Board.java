@@ -5,28 +5,45 @@ import java.util.List;
 
 public class Board {
 
-    private int[][] tiles;
+    private Tile[][] tiles;
 
     public Board() {
-        this.tiles = new int[4][4];
+        initializeTiles();
     }
 
-    public int[][] getTiles() {
+    private void initializeTiles() {
+        this.tiles = new Tile[4][4];
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                tiles[i][j] = new Tile();
+            }
+        }
+    }
+
+    public Tile[][] getTiles() {
         return tiles;
     }
 
-    public int getTileAtIndex(int index){
+    public Tile getTileAtIndex(int index){
         return tiles[index % 4][index / 4];
     }
 
     public void setTileAtIndex(int index, int value){
-        tiles[index % 4][index / 4] = value;
+        tiles[index % 4][index / 4].setValue(value);
+    }
+
+    public Tile[] getRow(int rowNumber){
+        return tiles[rowNumber];
+    }
+
+    public Tile[] getColumn(int columnNumber){
+        return new Tile[]{tiles[0][columnNumber],tiles[1][columnNumber],tiles[2][columnNumber],tiles[3][columnNumber]};
     }
 
     public List<Integer> getFreeIndexList(){
         List<Integer> freeIndexes = new ArrayList<Integer>();
         for(int i = 0; i < 16; i++){
-            if(getTileAtIndex(i) == 0) {
+            if(getTileAtIndex(i).isEmpty()) {
                 freeIndexes.add(i);
             }
         }
