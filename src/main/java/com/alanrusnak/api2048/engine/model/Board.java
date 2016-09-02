@@ -1,6 +1,7 @@
 package com.alanrusnak.api2048.engine.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Board {
@@ -48,5 +49,18 @@ public class Board {
             }
         }
         return freeIndexes;
+    }
+
+    @Override
+    public String toString() {
+        String boardString = "";
+        for(int i = 0; i < 4; i++){
+            boardString += "|";
+            for(int j = 0; j < 4; j++){
+                boardString +=(getTiles()[i][j] + "|");
+            }
+            boardString += "\n";
+        }
+        return boardString;
     }
 }
