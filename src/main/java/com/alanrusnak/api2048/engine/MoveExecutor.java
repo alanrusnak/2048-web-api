@@ -2,6 +2,7 @@ package com.alanrusnak.api2048.engine;
 
 import com.alanrusnak.api2048.engine.model.Board;
 import com.alanrusnak.api2048.engine.model.Tile;
+import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,36 +18,48 @@ public class MoveExecutor {
         }
     }
 
-    public void boardMoveUp(Board board){
-
+    private void boardMoveUp(Board board){
+        for(int i = 0; i < 4; i++){
+            columnMoveUp(board.getColumn(i));
+        }
     }
 
-    public void columnMoveUp(Tile[] column){
-
+    private void columnMoveUp(Tile[] column){
+        ArrayUtils.reverse(column);
+        slideRight(column);
+        ArrayUtils.reverse(column);
     }
 
-    public void boardMoveRight(Board board){
-
+    private void boardMoveRight(Board board){
+        for(int i = 0; i < 4; i++){
+            rowMoveRight(board.getRow(i));
+        }
     }
 
-    public void rowMoveRight(Tile[] row){
-
+    private void rowMoveRight(Tile[] row){
+        slideRight(row);
     }
 
-    public void boardMoveDown(Board board){
-
+    private void boardMoveDown(Board board){
+        for(int i = 0; i < 4; i++){
+            columnMoveDown(board.getColumn(i));
+        }
     }
 
-    public void columnMoveDown(Tile[] row){
-
+    private void columnMoveDown(Tile[] column){
+        slideRight(column);
     }
 
-    public void boardMoveLeft(Board board){
-
+    private void boardMoveLeft(Board board){
+        for(int i = 0; i < 4; i++){
+            rowMoveLeft(board.getRow(i));
+        }
     }
 
-    public void rowMoveLeft(Tile[] column){
-
+    private void rowMoveLeft(Tile[] row){
+        ArrayUtils.reverse(row);
+        slideRight(row);
+        ArrayUtils.reverse(row);
     }
 
     public void slideRight(Tile[] row){
@@ -55,6 +68,7 @@ public class MoveExecutor {
                 slideTileRight(row, i);
             }
         }
+        clearAlreadyMergedFlags(row);
     }
 
     private void slideTileRight(Tile[] row, int index) {
@@ -68,6 +82,12 @@ public class MoveExecutor {
                 row[i].setValue(0);
                 return;
             }
+        }
+    }
+
+    private void clearAlreadyMergedFlags(Tile[] row) {
+        for(int i = 0; i < 4; i++){
+            row[i].setAlreadyMerged(false);
         }
     }
 

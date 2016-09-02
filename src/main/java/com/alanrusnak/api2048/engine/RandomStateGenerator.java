@@ -5,6 +5,7 @@ import com.alanrusnak.api2048.engine.util.BoardPrinter;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.UUID;
 
 @Component
@@ -38,7 +39,17 @@ public class RandomStateGenerator {
 
     public static void main(String[] args){
         RandomStateGenerator rsg = new RandomStateGenerator();
-        BoardPrinter.printBoard(rsg.generateNewBoard());
+        Board board = rsg.generateNewBoard();
+        for(int i = 0; i < 20; i++) {
+            BoardPrinter.printBoard(board);
+            Scanner in = new Scanner(System.in);
+            System.out.print("Direction: ");
+            int input = in.nextInt();
+            MoveExecutor moveExecutor = new MoveExecutor();
+            moveExecutor.move(board, input);
+            rsg.generateNextRandomTile(board);
+            System.out.println();
+        }
     }
 
 }
