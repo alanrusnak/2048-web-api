@@ -26,12 +26,12 @@ public class Tile {
         this.value = value;
     }
 
-    public boolean isMergedAlready() {
+    public boolean isAlreadyMerged() {
         return isAlreadyMerged;
     }
 
-    public void setMergedAlready(boolean mergedAlready) {
-        isAlreadyMerged = mergedAlready;
+    public void setAlreadyMerged(boolean alreadyMerged) {
+        isAlreadyMerged = alreadyMerged;
     }
 
     @Override
