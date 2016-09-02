@@ -36,6 +36,20 @@ public class MoveExecutorTest {
         Assert.assertEquals(2, row[3].getValue());
     }
 
+    @Test
+    public void testSlideTileWithSpaceTaken(){
+        Tile[] row = row(2,0,0,4);
+        moveExecutor.slideRight(row);
+        Assert.assertEquals(2, row[2].getValue());
+    }
+
+    @Test
+    public void testMergeTwoTiles(){
+        Tile[] row = row(2,0,0,2);
+        moveExecutor.slideRight(row);
+        Assert.assertEquals(4, row[3].getValue());
+    }
+
     private Tile[] row(int t1, int t2, int t3, int t4){
         return new Tile[]{new Tile(t1), new Tile(t2), new Tile(t3), new Tile(t4)};
     }
