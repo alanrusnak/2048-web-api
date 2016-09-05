@@ -81,6 +81,8 @@ public class MoveExecutor {
                 row[i+1].setAlreadyMerged(true);
                 row[i].setValue(0);
                 return;
+            } else {
+                return;
             }
         }
     }
