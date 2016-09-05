@@ -3,11 +3,13 @@ package com.alanrusnak.api2048.controller;
 import com.alanrusnak.api2048.engine.GamesManager;
 import com.alanrusnak.api2048.engine.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Controller {
+public class GameRestController {
 
     @Autowired
     private GamesManager gamesManager;
