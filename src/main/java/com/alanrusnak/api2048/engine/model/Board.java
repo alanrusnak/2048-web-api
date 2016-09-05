@@ -1,8 +1,10 @@
 package com.alanrusnak.api2048.engine.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
 
 public class Board {
 
@@ -41,6 +43,7 @@ public class Board {
         return new Tile[]{tiles[0][columnNumber],tiles[1][columnNumber],tiles[2][columnNumber],tiles[3][columnNumber]};
     }
 
+    @JsonIgnore
     public List<Integer> getFreeIndexList(){
         List<Integer> freeIndexes = new ArrayList<Integer>();
         for(int i = 0; i < 16; i++){

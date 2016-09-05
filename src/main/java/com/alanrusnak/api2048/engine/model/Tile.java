@@ -1,6 +1,9 @@
 package com.alanrusnak.api2048.engine.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public class Tile {
+
 
     private int value;
     private boolean isAlreadyMerged;
@@ -18,6 +21,7 @@ public class Tile {
         return value == 0;
     }
 
+    @JsonValue
     public int getValue() {
         return value;
     }

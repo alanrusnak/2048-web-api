@@ -19,12 +19,12 @@ public class GamesManager {
 
     private Map<String, Game> activeGames = new HashMap<String, Game>();
 
-    public String createNewGame() {
+    public Game createNewGame() {
         String id = randomStateGenerator.generateGameId();
         Board board = randomStateGenerator.generateNewBoard();
         Game newGame = new Game(id, board);
         activeGames.put(id, newGame);
-        return id;
+        return newGame;
     }
 
     public Game getGame(String id){
