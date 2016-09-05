@@ -12,69 +12,80 @@ public class MoveExecutorTest {
     public void testSlideTile0Spaces(){
         Tile[] row = row(0,0,0,2);
         moveExecutor.slideRight(row);
-        Assert.assertEquals(2, row[3].getValue());
+        assertRow(row, 0,0,0,2);
     }
 
     @Test
     public void testSlideTile1Spaces(){
         Tile[] row = row(0,0,2,0);
         moveExecutor.slideRight(row);
-        Assert.assertEquals(2, row[3].getValue());
+        assertRow(row, 0,0,0,2);
     }
 
     @Test
     public void testSlideTile2Spaces(){
         Tile[] row = row(0,2,0,0);
         moveExecutor.slideRight(row);
-        Assert.assertEquals(2, row[3].getValue());
+        assertRow(row, 0,0,0,2);
     }
 
     @Test
     public void testSlideTile3Spaces(){
         Tile[] row = row(2,0,0,0);
         moveExecutor.slideRight(row);
-        Assert.assertEquals(2, row[3].getValue());
+        assertRow(row, 0,0,0,2);
     }
 
     @Test
     public void testSlideTileWithSpaceTaken(){
         Tile[] row = row(2,0,0,4);
         moveExecutor.slideRight(row);
-        Assert.assertEquals(2, row[2].getValue());
+        assertRow(row, 0,0,2,4);
     }
 
     @Test
     public void testMergeTwoTiles(){
         Tile[] row = row(2,0,0,2);
         moveExecutor.slideRight(row);
-        Assert.assertEquals(4, row[3].getValue());
+        assertRow(row, 0,0,0,4);
     }
 
     @Test
     public void testMergeTwoTilesWithOneOnRight(){
         Tile[] row = row(2,0,2,4);
         moveExecutor.slideRight(row);
-        Assert.assertEquals(4, row[2].getValue());
+        assertRow(row, 0,0,4,4);
+    }
+
+    @Test
+    public void testMergeTwoTilesWithBiggerOneOnRight(){
+        Tile[] row = row(2,8,8,16);
+        moveExecutor.slideRight(row);
+        assertRow(row, 0,2,16,16);
     }
 
     @Test
     public void testMergeTwoTilesWithOneOnLeft(){
         Tile[] row = row(8,0,4,4);
         moveExecutor.slideRight(row);
-        Assert.assertEquals(8, row[2].getValue());
-        Assert.assertEquals(8, row[3].getValue());
+        assertRow(row, 0,0,8,8);
     }
 
     @Test
     public void testMergeFourTiles(){
         Tile[] row = row(2,2,2,2);
         moveExecutor.slideRight(row);
-        Assert.assertEquals(0, row[1].getValue());
-        Assert.assertEquals(4, row[2].getValue());
-        Assert.assertEquals(4, row[3].getValue());
+        assertRow(row, 0,0,4,4);
     }
 
-    private Tile[] row(int t1, int t2, int t3, int t4){
-        return new Tile[]{new Tile(t1), new Tile(t2), new Tile(t3), new Tile(t4)};
+    private Tile[] row(int t0, int t1, int t2, int t3){
+        return new Tile[]{new Tile(t0), new Tile(t1), new Tile(t2), new Tile(t3)};
+    }
+
+    private void assertRow(Tile[] row, int t0, int t1, int t2, int t3){
+        Assert.assertEquals(t0, row[0].getValue());
+        Assert.assertEquals(t1, row[1].getValue());
+        Assert.assertEquals(t2, row[2].getValue());
+        Assert.assertEquals(t3, row[3].getValue());
     }
 }
