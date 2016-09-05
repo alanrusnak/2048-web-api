@@ -10,8 +10,15 @@
 <div>
     <p class="game-id">The Game id is </p>
     <p class="game-score">The Game score is </p>
-    <p class="game-board">The Game board is </p>
+    <div id="tile-row-one"></div>
+    <div id="tile-row-two"></div>
+    <div id="tile-row-three"></div>
+    <div id="tile-row-four"></div>
     <input type="button" value="New Game" onclick="newGame()" />
+    <input type="button" value="Up" onclick="move('0')" />
+    <input type="button" value="Right" onclick="move('1')" />
+    <input type="button" value="Down" onclick="move('2')" />
+    <input type="button" value="Left" onclick="move('3')" />
 </div>
 </body>
 </html>
