@@ -16,7 +16,12 @@ function displayData(data){
   for (var i = 0; i < 4; i++) {
     for(var j = 0; j< 4; j++){
         var tileIndex = i * 4 + j;
-        $('#tile' + tileIndex).text(data.board.tiles[i][j]);
+        if(tiles[i][j] !== 0){
+            $('#tile' + tileIndex).text(tiles[i][j]);
+        } else {
+            $('#tile' + tileIndex).text('');
+        }
+
     }
   }
 
