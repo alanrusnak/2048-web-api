@@ -35,3 +35,18 @@ function move(direction) {
           displayData(data);
        });
 };
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37: move('3')// left
+        break;
+        case 38: move('0')// up
+        break;
+        case 39: move('1')// right
+        break;
+        case 40: move('2')// down
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
