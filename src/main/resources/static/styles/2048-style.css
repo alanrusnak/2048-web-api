@@ -1,0 +1,25 @@
+body{
+    background-color: #faf8ef;
+}
+
+.grid{
+    background-color: #bbada0;
+    width: 500px;
+    height: 500px;
+    margin: 20px auto;
+}
+
+.grid-row{
+    background-color: #bbada0;
+    margin: 5px;
+    max-height: 50px;
+    max-width: 500px;
+}
+
+.tile{
+    background-color: rgba(238, 228, 218, 0.35);
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    float: left;
+}

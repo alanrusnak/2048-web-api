@@ -6,22 +6,21 @@ function newGame() {
        }).then(function(data) {
           gameId = data.id;
           $('.game-id').append(data.id);
-          $('.game-score').append(data.score);
-          $('#tile-row-one').text(data.board.tiles[0]);
-          $('#tile-row-two').text(data.board.tiles[1]);
-          $('#tile-row-three').text(data.board.tiles[2]);
-          $('#tile-row-four').text(data.board.tiles[3]);
-          console.log(data);
+          displayData(data);
        });
 };
 
 function displayData(data){
-$('.game-score').text("Score: " + data.score);
-          $('#tile-row-one').text(data.board.tiles[0]);
-          $('#tile-row-two').text(data.board.tiles[1]);
-          $('#tile-row-three').text(data.board.tiles[2]);
-          $('#tile-row-four').text(data.board.tiles[3]);
-          console.log(data);
+  $('.game-score').text("Score: " + data.score);
+  var tiles = data.board.tiles;
+  for (var i = 0; i < 4; i++) {
+    for(var j = 0; j< 4; j++){
+        var tileIndex = i * 4 + j;
+        $('#tile' + tileIndex).text(data.board.tiles[i][j]);
+    }
+  }
+
+  console.log(data);
 }
 
 function move(direction) {
