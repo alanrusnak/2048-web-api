@@ -34,7 +34,7 @@ public class GameOverDetector {
         return  neighbourI > 0 && neighbourI < 4 &&
                 neighbourJ > 0 && neighbourJ < 4 &&
                 (tiles[neighbourI][neighbourJ].isEmpty() ||
-                 tiles[neighbourI-1][neighbourJ].getValue() == tile.getValue());
+                 tiles[neighbourI][neighbourJ].getValue() == tile.getValue());
     }
 
 
