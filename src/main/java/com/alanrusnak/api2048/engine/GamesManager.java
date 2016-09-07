@@ -2,6 +2,7 @@ package com.alanrusnak.api2048.engine;
 
 import com.alanrusnak.api2048.engine.model.Board;
 import com.alanrusnak.api2048.engine.model.Game;
+import com.alanrusnak.api2048.engine.model.MoveResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -32,8 +33,13 @@ public class GamesManager {
     }
 
     public void move(String id, String direction){
-        Board board = activeGames.get(id).getBoard();
-        moveExecutor.move(board, Integer.parseInt(direction));
-        randomStateGenerator.generateNextRandomTile(board);
+        Game game = activeGames.get(id);
+        Board board = game.getBoard();
+        MoveResult result = moveExecutor.move(board, Integer.parseInt(direction));
+        if(result.wasTileMoved()){
+            game.addScore(result.getScore());
+            randomStateGenerator.generateNextRandomTile(board);
+        }
+
     }
 }

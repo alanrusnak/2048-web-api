@@ -20,6 +20,10 @@ public class Game {
         return score;
     }
 
+    public void addScore(int score){
+        this.score = this.score + score;
+    }
+
     public Board getBoard() {
         return board;
     }
