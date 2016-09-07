@@ -5,11 +5,13 @@ public class Game {
     private String id;
     private long score;
     private Board board;
+    private boolean isGameOver;
 
     public Game(String id, Board board) {
         this.id = id;
         this.score = 0;
         this.board = board;
+        isGameOver = false;
     }
 
     public String getId() {
@@ -26,5 +28,13 @@ public class Game {
 
     public Board getBoard() {
         return board;
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        isGameOver = gameOver;
     }
 }

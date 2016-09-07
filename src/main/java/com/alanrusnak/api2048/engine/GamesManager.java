@@ -18,6 +18,9 @@ public class GamesManager {
     @Autowired
     private RandomStateGenerator randomStateGenerator;
 
+    @Autowired
+    private GameOverDetector gameOverDetector;
+
     private Map<String, Game> activeGames = new HashMap<String, Game>();
 
     public Game createNewGame() {
@@ -32,14 +35,19 @@ public class GamesManager {
         return activeGames.get(id);
     }
 
-    public void move(String id, String direction){
+    public Game move(String id, String direction){
         Game game = activeGames.get(id);
+        if(game.isGameOver()){
+            return game;
+        }
         Board board = game.getBoard();
         MoveResult result = moveExecutor.move(board, Integer.parseInt(direction));
         if(result.wasTileMoved()){
             game.addScore(result.getScore());
             randomStateGenerator.generateNextRandomTile(board);
+            game.setGameOver(gameOverDetector.isGameOver(board));
         }
+        return game;
 
     }
 }

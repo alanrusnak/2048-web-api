@@ -26,7 +26,6 @@ public class GameRestController {
 
     @RequestMapping(value="/2048/{gameId}/{direction}")
     public @ResponseBody Game move(@PathVariable(value="gameId") String gameId, @PathVariable(value="direction") String direction) {
-        gamesManager.move(gameId, direction);
-        return gamesManager.getGame(gameId);
+        return gamesManager.move(gameId, direction);
     }
 }
