@@ -16,11 +16,11 @@ public class GameOverDetector {
         for(int i = 0; i<4; i++){
             for(int j = 0; j<4; j++){
                 if(canMoveOrMergeTile(tiles,i,j)){
-                    return true;
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
     public boolean canMoveOrMergeTile(Tile[][] tiles, int i, int j){
