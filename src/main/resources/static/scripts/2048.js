@@ -18,8 +18,12 @@ function displayData(data){
         var tileIndex = i * 4 + j;
         if(tiles[i][j] !== 0){
             $('#tile' + tileIndex).text(tiles[i][j]);
+            $('#tile' + tileIndex).removeClass();
+            $('#tile' + tileIndex).addClass('tile tile-' + (tiles[i][j] <= 2048 ? tiles[i][j] : 'super'));
         } else {
             $('#tile' + tileIndex).text('');
+            $('#tile' + tileIndex).removeClass();
+            $('#tile' + tileIndex).addClass('tile');
         }
 
     }

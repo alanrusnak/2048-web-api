@@ -1,28 +1,84 @@
 body{
     background-color: #faf8ef;
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 .grid{
     background-color: #bbada0;
-    width: 500px;
-    height: 500px;
+    width: 440px;
+    height: 440px;
     margin: 20px auto;
+    padding: 5px;
 }
 
 .grid-row{
     background-color: #bbada0;
-    margin: 5px;
-    max-height: 50px;
-    max-width: 500px;
+    width: 440px;
+    height: 100px;
 }
 
 .tile{
     background-color: rgba(238, 228, 218, 0.35);
     color: #776e65;
     font-size: 55px;
-    width: 100px;
     height: 100px;
+    width: 100px;
     margin: 5px;
     float: left;
+    text-align: center;
+    font-weight: bold;
+     line-height: 100px
+}
 
+.tile-2{
+   background-color: #eee4da;
+}
+.tile-4{
+    background-color: #ede0c8;
+}
+.tile-8{
+    color: #f9f6f2;
+    background: #f2b179;
+}
+.tile-16{
+    color: #f9f6f2;
+    background: #f59563
+}
+.tile-32{
+    color: #f9f6f2;
+    background: #f67c5f
+}
+.tile-64{
+    color: #f9f6f2;
+    background: #f65e3b;
+}
+.tile-128{
+    color: #f9f6f2;
+    background: #edcf72;
+    font-size: 45px;
+}
+.tile-256{
+    color: #f9f6f2;
+    background: #edcc61;
+    font-size: 45px;
+}
+.tile-512{
+    color: #f9f6f2;
+    background: #edc850;
+    font-size: 45px;
+}
+.tile-1024{
+    color: #f9f6f2;
+    background: #edc53f;
+    font-size: 35px;
+}
+.tile-2048{
+    color: #f9f6f2;
+    background: #edc22e;
+    font-size: 35px;
+}
+.tile-super{
+    color: #f9f6f2;
+    background: #3c3a32;
+    font-size: 30px;
 }
