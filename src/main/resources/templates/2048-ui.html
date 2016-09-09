@@ -8,9 +8,17 @@
 </head>
 
 <body>
-<div>
-    <p class="game-id">The Game id is </p>
-    <p class="game-score">The Game score is </p>
+<div class="container">
+    <div class="header">
+        <div class="title-container">
+            <h1 class="title">2048</h1>
+            <h2 class="subtitle">Java Web API</h2>
+        </div>
+        <div class="score-container">SCORE <p class="game-score"></p></div>
+
+        <input type="button" value="New Game" onclick="newGame()" />
+    </div>
+
     <div class="grid">
     <div class="grid-row">
         <div id="tile0" class="tile"></div>
@@ -37,11 +45,10 @@
         <div id="tile15" class="tile"></div>
     </div>
     </div>
-    <input type="button" value="New Game" onclick="newGame()" />
-    <input type="button" value="Up" onclick="move('0')" />
-    <input type="button" value="Right" onclick="move('1')" />
-    <input type="button" value="Down" onclick="move('2')" />
-    <input type="button" value="Left" onclick="move('3')" />
+
+    <div class="lower-container">
+
+    </div>
 </div>
 </body>
 </html>
