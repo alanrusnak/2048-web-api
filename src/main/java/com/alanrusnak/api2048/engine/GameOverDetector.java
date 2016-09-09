@@ -24,15 +24,13 @@ public class GameOverDetector {
     }
 
     public boolean canMoveOrMergeTile(Tile[][] tiles, int i, int j){
-        return  canMoveToNeighbourTile(tiles, tiles[i][j], i-1, j) ||
-                canMoveToNeighbourTile(tiles, tiles[i][j], i+1, j) ||
-                canMoveToNeighbourTile(tiles, tiles[i][j], i, j-1) ||
+        return  canMoveToNeighbourTile(tiles, tiles[i][j], i+1, j) ||
                 canMoveToNeighbourTile(tiles, tiles[i][j], i, j+1);
     }
 
     private boolean canMoveToNeighbourTile(Tile[][] tiles, Tile tile, int neighbourI, int neighbourJ) {
-        return  neighbourI > 0 && neighbourI < 4 &&
-                neighbourJ > 0 && neighbourJ < 4 &&
+        return  neighbourI >= 0 && neighbourI <= 3 &&
+                neighbourJ >= 0 && neighbourJ <= 3 &&
                 (tiles[neighbourI][neighbourJ].isEmpty() ||
                  tiles[neighbourI][neighbourJ].getValue() == tile.getValue());
     }
