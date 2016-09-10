@@ -1,3 +1,7 @@
+$( document ).ready(function() {
+    newGame();
+});
+
 var gameId;
 
 function newGame() {
@@ -28,6 +32,13 @@ function displayData(data){
 
     }
   }
+
+    if(data.gameOver){
+        $('.game-over-message').fadeIn(2000);
+    } else {
+        $('.game-over-message').hide();
+    }
+
 
   console.log(data);
 }
