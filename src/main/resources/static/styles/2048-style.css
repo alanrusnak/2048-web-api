@@ -11,7 +11,9 @@ margin: 0 auto;
 }
 
 .header{
-margin-bottom: 100px;
+    margin-bottom: 150px;
+    padding-bottom: 50px;
+    display: block;
 }
 
 .title-container{
@@ -27,14 +29,53 @@ margin-bottom: 100px;
 .subtitle{
     font-size: 30px;
     margin: 0;
+}
 
+.score-container{
+    float: right;
+    margin: 20px 30px;
+    background: #bbada0;
+    padding: 5px 35px 15px 35px;
+    font-size: 13px;
+    height: 25px;
+    line-height: 13px;
+    font-weight: bold;
+    border-radius: 3px;
+    color: #eee4da;
+    text-align: center;
+}
+
+.game-score{
+    font-size: 25px;
+    height: 25px;
+    font-weight: bold;
+    border-radius: 3px;
+    color: white;
+    margin-top: 8px;
+    text-align: center
+}
+
+.new-game-button{
+    margin-right: 25px;
+    background: #8f7a66;
+    border-radius: 3px;
+    padding: 0 20px;
+    text-decoration: none;
+    color: #f9f6f2;
+    height: 40px;
+    line-height: 42px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    float: right;
 }
 
 .grid{
+    display: block;
     background-color: #bbada0;
     width: 440px;
     height: 440px;
-    margin: 20px auto;
+    margin: 200px auto;
     padding: 5px;
     border-radius: 6px;
 }

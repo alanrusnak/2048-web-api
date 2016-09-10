@@ -11,7 +11,7 @@ function newGame() {
 };
 
 function displayData(data){
-  $('.game-score').text("Score: " + data.score);
+  $('.game-score').text(data.score);
   var tiles = data.board.tiles;
   for (var i = 0; i < 4; i++) {
     for(var j = 0; j< 4; j++){
