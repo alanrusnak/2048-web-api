@@ -5,6 +5,11 @@ body{
     font-size: 18px;
 }
 
+pre{
+    white-space: normal;
+    font-size: 14px;
+}
+
 .container{
 width: 440px;
 margin: 0 auto;
@@ -176,4 +181,16 @@ margin: 0 auto;
 .how-to-play{
     margin-top: 40px;
     line-height: 1.5;
+}
+
+.about-container{
+    padding-bottom: 50px;
+    width: 500px;
+}
+
+.about-container a{
+    color: #776e65;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
 }

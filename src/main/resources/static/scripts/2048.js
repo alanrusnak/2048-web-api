@@ -11,12 +11,23 @@ function newGame() {
           gameId = data.id;
           $('.game-id').append(data.id);
           displayData(data);
+          setRequestAndResponse("/2048/new", data);
+       });
+};
+
+function move(direction) {
+   $.ajax({
+           url: "/2048/" + gameId + "/" + direction
+       }).then(function(data) {
+          displayData(data);
+          setRequestAndResponse("/2048/" + gameId + "/" + direction, data);
        });
 };
 
 function displayData(data){
   $('.game-score').text(data.score);
   var tiles = data.board.tiles;
+
   for (var i = 0; i < 4; i++) {
     for(var j = 0; j< 4; j++){
         var tileIndex = i * 4 + j;
@@ -33,23 +44,15 @@ function displayData(data){
     }
   }
 
-    if(data.gameOver){
-        $('.game-over-message').fadeIn(2000);
-    } else {
-        $('.game-over-message').hide();
-    }
+  if(data.gameOver){
+      $('.game-over-message').fadeIn(2000);
+  } else {
+      $('.game-over-message').hide();
+  }
 
-
-  console.log(data);
 }
 
-function move(direction) {
-   $.ajax({
-           url: "/2048/" + gameId + "/" + direction
-       }).then(function(data) {
-          displayData(data);
-       });
-};
+
 
 $(document).keydown(function(e) {
     switch(e.which) {
@@ -65,3 +68,8 @@ $(document).keydown(function(e) {
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
+
+function setRequestAndResponse(request, response){
+    $('#request').text(window.location.host + request);
+    $('#response').text(JSON.stringify(response, null, 2));
+}
