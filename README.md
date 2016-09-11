@@ -6,7 +6,7 @@ See it live on http://alanrusnak.com/2048
 
 
 ##API
-Create new game:
+Create a new game:
 ```
 http://localhost:8080/2048/new/
 ```
