@@ -4,6 +4,12 @@
 
 See it live on http://alanrusnak.com/2048
 
+##Deploying
+```
+mvn package
+java -jar target/2048.jar
+```
+and the app should be running on localhost:8080/2048/
 
 ##API
 Create a new game:
