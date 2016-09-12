@@ -8,6 +8,6 @@ public class PageController {
 
     @RequestMapping("/2048")
     public String get2048Page() {
-        return "/2048-ui";
+        return "2048-ui";
     }
 }

@@ -45,7 +45,19 @@
 
   </dependencies>
 
+  <properties>
+    <start-class>com.alanrusnak.api2048.Application</start-class>
+  </properties>
+
+
+
   <build>
     <finalName>2048</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
   </build>
 </project>
