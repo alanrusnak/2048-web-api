@@ -23,10 +23,10 @@ http://localhost:8080/2048/{game-id}/
 
 Make a move:
 ```
-http://localhost:8080/2048/{game-id}/0   -   to move up
-http://localhost:8080/2048/{game-id}/1   -   to move right
-http://localhost:8080/2048/{game-id}/2   -   to move down
-http://localhost:8080/2048/{game-id}/3   -   to move left
+http://localhost:8080/2048/{game-id}/0   - to move up
+http://localhost:8080/2048/{game-id}/1   - to move right
+http://localhost:8080/2048/{game-id}/2   - to move down
+http://localhost:8080/2048/{game-id}/3   - to move left
 ```
 All requests result in a JSON response in this format:
 ```
