@@ -1,17 +1,17 @@
-#2048 Web API
+# 2048 Web API
 
 2048 game engine written in Java with Spring and SpringBoot frameworks, accessible via a simple Web API
 
 See it live on http://alanrusnak.com/2048
 
-##Deploying
+## Deploying
 ```
 mvn package
 java -jar target/2048.jar
 ```
 and the app should be running on localhost:8080/2048/
 
-##API
+## API
 Create a new game:
 ```
 http://localhost:8080/2048/new/
